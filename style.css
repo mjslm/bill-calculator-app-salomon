@@ -1,0 +1,198 @@
+/* DESKTOP WRAPPER */
+.desktop-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    background: #f5f6f8;
+    padding-bottom: 60px;
+}
+
+/* BODY */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eaeaea;
+}
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    background: white;
+    padding: 18px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    margin-left: 70px;
+}
+
+.nav-links a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+}
+
+/* BUTTONS */
+.btn {
+    padding: 8px 18px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.login {
+    background: #fff;
+    border: 2px solid #e2c300;
+    color: #e2c300;
+}
+
+.signup {
+    background: #e2c300;
+    color: #fff;
+    margin-left: 10px;
+    margin-right: 50px;
+}
+
+/* HERO SECTION */
+.energy-container {
+    margin: 40px auto;
+    padding: 40px 50px;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+/* HERO TEXT */
+.hero-text-container h1 {
+    font-size: 2.6rem;
+    margin-bottom: 10px;
+    color: #222;
+    font-weight: 800;
+}
+
+.hero-text-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 700;
+}
+
+.hero-text-container p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 450px;
+}
+
+/* HERO IMAGE */
+.hero-img img {
+    width: 330px;
+}
+
+/* BENEFITS SECTION */
+.benefits {
+    margin: 40px auto;
+    padding: 10px;
+}
+
+.benefits h2 {
+    margin-bottom: 20px;
+    font-size: 1.9rem;
+}
+
+/* BENEFIT BOXES */
+.benefit-boxes {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.box {
+    background: white;
+    width: 32%;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+}
+
+.box img {
+    width: 50px;
+    margin-bottom: 12px;
+}
+
+.box p {
+    font-weight: 600;
+    color: #444;
+    margin-top: 5px;
+}
+
+/* ------------------------------------------------ */
+/*                FEATURES SECTION                  */
+/* ------------------------------------------------ */
+
+.features-wrapper {
+    width: 100%;
+    max-width: 1180px;
+    margin: 60px auto;
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 45px 50px;
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.features-wrapper h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.features-wrapper strong {
+    color: #bf9230;
+}
+
+/* Layout of 3 features */
+.features-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+/* Each feature card */
+.feature-card {
+    width: 33%;
+}
+
+/* Icons */
+.feature-icon {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 13px;
+    object-fit: contain;
+    color: #C0940F;
+}
+
+/* Titles */
+.feature-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin: 0 0 8px;
+}
+
+/* Description */
+.feature-text {
+    font-size: 0.85rem;
+    color: #333;
+    line-height: 1.35;
+    max-width: 260px;
+}
