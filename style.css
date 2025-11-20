@@ -1,198 +1,331 @@
-/* DESKTOP WRAPPER */
-.desktop-wrapper {
-    max-width: 1280px;
-    margin: 0 auto;
-    background: #f5f6f8;
-    padding-bottom: 60px;
-}
-
-/* BODY */
-body {
+/* --- RESET --- */
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #eaeaea;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* NAVBAR */
-.navbar {
-    width: 100%;
-    background: white;
-    padding: 18px 0;
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fff;
+    color: #111111; 
+    
+    /* --- FIXED DIMENSIONS --- */
+    width: 1360px;      
+    min-height: 1024px; 
+    
+    margin: 0 auto;
+    border: 1px dashed #ccc; 
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* --- NAVBAR --- */
+header {
+    background-color: #565656;
+    height: 80px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #ddd;
+    justify-content: space-between;
+    padding: 0 80px; 
 }
 
-.logo img {
-    height: 50px;
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+.nav-logo-img {
+    height: 40px;
     width: auto;
-    margin-left: 70px;
 }
 
-.nav-links a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #555;
-    font-weight: 600;
-}
-
-/* BUTTONS */
-.btn {
-    padding: 8px 18px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.login {
-    background: #fff;
-    border: 2px solid #e2c300;
-    color: #e2c300;
-}
-
-.signup {
-    background: #e2c300;
-    color: #fff;
-    margin-left: 10px;
-    margin-right: 50px;
-}
-
-/* HERO SECTION */
-.energy-container {
-    margin: 40px auto;
-    padding: 40px 50px;
-    background: white;
-    border-radius: 25px;
-    box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+nav ul {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     gap: 40px;
 }
-
-/* HERO TEXT */
-.hero-text-container h1 {
-    font-size: 2.6rem;
-    margin-bottom: 10px;
-    color: #222;
-    font-weight: 800;
+nav a {
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.hero-text-container h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: #333;
-    font-weight: 700;
+.nav-buttons {
+    display: flex;
+    gap: 15px;
 }
 
-.hero-text-container p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.6;
+.btn {
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-login {
+    background-color: #D4AF37; 
+    color: #fff;
+}
+
+.btn-signup {
+    background-color: #fff;
+    color: #D4AF37; 
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 120px;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-family: 'Inter', sans-serif; 
+    font-size: 58px; 
+    line-height: 1.2;
+    font-weight: 600; 
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 16 px;
+    color: #555555; 
     max-width: 450px;
 }
 
-/* HERO IMAGE */
-.hero-img img {
-    width: 330px;
+.hero-image img {
+    width: 400px; 
+    height: auto;
+    display: block;
 }
 
-/* BENEFITS SECTION */
+/* --- BENEFITS SECTION --- */
 .benefits {
-    margin: 40px auto;
-    padding: 10px;
+    padding: 40px 120px; 
 }
 
-.benefits h2 {
-    margin-bottom: 20px;
-    font-size: 1.9rem;
-}
-
-/* BENEFIT BOXES */
-.benefit-boxes {
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
-}
-
-.box {
-    background: white;
-    width: 32%;
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.07);
-}
-
-.box img {
-    width: 50px;
-    margin-bottom: 12px;
-}
-
-.box p {
-    font-weight: 600;
-    color: #444;
-    margin-top: 5px;
-}
-
-/* ------------------------------------------------ */
-/*                FEATURES SECTION                  */
-/* ------------------------------------------------ */
-
-.features-wrapper {
-    width: 100%;
-    max-width: 1180px;
-    margin: 60px auto;
-    background: #ffffff;
-    border-radius: 22px;
-    padding: 45px 50px;
-    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.12);
-}
-
-.features-wrapper h2 {
-    font-size: 2rem;
+.benefits-title {
+    font-size: 24px;
     font-weight: 700;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
+}
+.benefits-title span { 
+    color: #D4AF37; 
 }
 
-.features-wrapper strong {
-    color: #bf9230;
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px; 
 }
 
-/* Layout of 3 features */
-.features-row {
+.b-card {
+    border: 1px solid;
+    border-color: #808080;
+    border-radius: 30px;
+    padding: 40px 25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+
+}
+
+.b-card img {
+    height: 70px;
+    width: auto;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+.b-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    width: 80%;
+    line-height: 1.4;
+}
+
+/* --- FEATURES SECTION --- */
+.features {
+    padding: 80px 120px;
+}
+
+.features-header {
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+.features-header span { 
+    color: #D4AF37; 
+}
+
+.features-container {
+    border: 2px solid;
+    border-color: #808080;
+    border-radius: 20px;
+    padding: 60px;
     display: flex;
     justify-content: space-between;
-    gap: 35px;
+    align-items: flex-start;
 }
 
-/* Each feature card */
-.feature-card {
-    width: 33%;
+.feature-step {
+    flex: 1;
+    text-align: center;
+    padding: 0 25px;
 }
 
-/* Icons */
-.feature-icon {
-    width: 55px;
-    height: 55px;
-    margin-bottom: 13px;
-    object-fit: contain;
-    color: #C0940F;
+.feature-step img {
+    height: 65px;
+    width: auto;
+    margin-bottom: 25px;
+    display: inline-block;
 }
 
-/* Titles */
-.feature-title {
-    font-size: 1.05rem;
+.feature-step h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.feature-step p {
+    font-size: 15px;
+    color: #555555; 
+    line-height: 1.6;
+}
+
+/* --- TESTIMONIALS SECTION --- */
+.testimonials {
+    padding: 80px 120px;
+    text-align: center;
+}
+
+.test-header-box {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 20px 60px;
+    border-radius: 50px;
+    margin-bottom: 80px;
+}
+
+.test-header-box h2 {
+    font-size: 36px;
     font-weight: 800;
-    margin: 0 0 8px;
+    margin: 0;
+}
+.test-header-box h2 span { 
+    color: #D4AF37; 
 }
 
-/* Description */
-.feature-text {
-    font-size: 0.85rem;
-    color: #333;
-    line-height: 1.35;
-    max-width: 260px;
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    margin-bottom: 100px;
+}
+
+/* Updated Card Style */
+.t-card {
+    border: 1px solid #999;
+    border-radius: 25px;
+    padding: 30px;
+    /* Bottom padding ensures space for the name */
+    padding-bottom: 70px; 
+    text-align: left;
+    position: relative; 
+    background: #fff;
+}
+
+.stars {
+    color: #FFC107;
+    margin-bottom: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+}
+
+/* Centered, Bold Review Text */
+.t-card p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.5;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+/* User Profile - Bottom Left, Name Only */
+.user-profile {
+    position: absolute;
+    bottom: 25px; 
+    left: 25px;
+}
+
+.user-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #000;
+}
+
+/* --- CTA & FOOTER --- */
+.cta-section {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.cta-section h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.cta-section p {
+    color: #555555; 
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.btn-cta {
+    background-color: #D4AF37; 
+    color: #fff;
+    padding: 15px 50px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo-img {
+    height: 35px;
+    width: auto;
+    margin-bottom: 15px;
+}
+
+.copyright {
+    font-size: 12px;
+    color: #D4AF37; 
+    font-weight: 600;
 }

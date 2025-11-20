@@ -1,0 +1,214 @@
+/* GLOBALS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: #FFFFFF;
+    width: 100%;
+    min-height: 200vh; /* same scroll as signup page */
+}
+
+/* MAIN WRAPPER */
+.main-container {
+    display: flex;
+    width: 100%;
+    min-height: 200vh;
+}
+
+/* LEFT PANEL */
+.left-panel {
+    width: 33%;
+    background: #EACB42;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.logo {
+    position: absolute;
+    top: 60px;
+    left: 100px;
+    width: 240px;
+}
+
+.left-panel h2 {
+    position: absolute;
+    top: 170px;
+    left: 50px;
+    width: 340px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #FFFFFF;
+}
+
+/* RIGHT PANEL */
+.right-panel {
+    width: 67%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 90px;
+}
+
+.right-panel h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* FORM */
+.login-form {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* match signup input fields */
+.login-form input {
+    width: 100%;
+    padding: 14px;
+    border: 1.5px solid #DADADA;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* BUTTON (same yellow as signup) */
+.login-btn {
+    width: 100%;
+    background: #EACB42; /* SAME COLOR AS SIGNUP */
+    color: #FFFFFF;
+    padding: 15px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* LINKS */
+.links-row {
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0 20px 0;
+}
+
+.links-row a {
+    font-size: 13px;
+    text-decoration: none;
+    color: #C89A17;
+    font-weight: 500;
+}
+
+/* SOCIAL BUTTONS */
+.social-buttons {
+    display: flex;
+    gap: 18px;
+}
+
+.fb-btn,
+.google-btn {
+    width: 215px;
+    padding: 12px;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+    background: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.icon {
+    width: 20px;
+}
+
+/* ---------------------------------------------------------------------- */
+/* RESPONSIVE DESIGN → same breakpoints as signup page */
+/* ---------------------------------------------------------------------- */
+
+/* TABLET: max-width 992px */
+@media (max-width: 992px) {
+    .left-panel { width: 40%; }
+    .right-panel { width: 60%; padding-top: 60px; }
+    .right-panel h1 { font-size: 40px; }
+    .login-form { width: 380px; }
+    .logo { width: 240px; }
+    .left-panel h2 { font-size: 22px; width: 280px; }
+}
+
+/* MOBILE LARGE: max-width 768px */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .left-panel {
+        width: 100%;
+        padding: 40px 20px 80px 20px;
+        height: auto;
+    }
+
+    .logo {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 230px;
+        margin-bottom: 25px;
+    }
+
+    .left-panel h2 {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        font-size: 22px;
+    }
+
+    .right-panel {
+        width: 100%;
+        padding: 40px 20px;
+    }
+
+    .right-panel h1 {
+        font-size: 36px;
+    }
+
+    .login-form {
+        width: 100%;
+    }
+}
+
+/* MOBILE SMALL: max-width 480px */
+@media (max-width: 480px) {
+    .right-panel h1 {
+        font-size: 32px;
+    }
+
+    .login-form input {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .login-btn {
+        font-size: 16px;
+    }
+
+    .social-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .fb-btn,
+    .google-btn {
+        width: 100%;
+    }
+}

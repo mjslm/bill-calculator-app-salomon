@@ -1,102 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>WattsUp Desktop Layout</title>
-<link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WattsUp! - Electric Bill Calculator</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="desktop-wrapper">
+    <header>
+        <a href="#" class="logo-link">
+            <img src="my logo.png" alt="WattsUp Logo" class="nav-logo-img">
+        </a>
 
-    <!-- NAVBAR -->
-    <div class="navbar">
-        <div class="logo">
-            <img src="logo wattsup.png" alt="WattsUp Logo" />
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="nav-buttons">
+            <button class="btn btn-login">Log In</button>
+            <button class="btn btn-signup">Sign Up</button>
         </div>
+    </header>
 
-        <div class="nav-links">
-            <a href="#">HOME</a>
-            <a href="#">ABOUT US</a>
-            <a href="#">CONTACT</a>
-        </div>
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Stop Guessing. Start Saving.<br>Calculate your true electric cost now</h1>
+                <p>Monitor usage, track spending, and save money with ease.</p>
+            </div>
+            <div class="hero-image">
+                <img src="sss.png" alt="Energy Graph Illustration">
+            </div>
+        </section>
 
-        <div>
-            <button class="btn login">Log In</button>
-            <button class="btn signup">Sign Up</button>
-        </div>
-    </div>
+        <section class="benefits">
+            <h2 class="benefits-title">Benefits of using <span>WattsUp</span></h2>
+            
+            <div class="benefits-grid">
+                <div class="b-card active">
+                    <img src="calcu time.png" alt="Instant Bill Estimates">
+                    <h3>Instant Bill Estimates</h3>
+                </div>
+                <div class="b-card">
+                    <img src="task track.png" alt="Track Monthly Usage">
+                    <h3>Track Monthly Usage</h3>
+                </div>
+                <div class="b-card">
+                    <img src="data privz.png" alt="Data Privacy Guaranteed">
+                    <h3>Data Privacy Guaranteed</h3>
+                </div>
+            </div>
+        </section>
 
-    <!-- HERO -->
-    <div class="energy-container">
-        <div class="hero-text-container">
-            <h1>Stop Guessing. Start Saving.</h1>
-            <h2>Calculate your true electric cost now</h2>
-            <p>Monitor usage, track spending, and save money with ease.</p>
-        </div>
+        <section class="features">
+            <h2 class="features-header">Our <span>Features:</span></h2>
+            
+            <div class="features-container">
+                <div class="feature-step">
+                    <img src="inp data.png" alt="Input Data">
+                    <h3>1. Input your data</h3>
+                    <p>Simply enter your latest power consumption (kWh) and the rate from your bill into the calculator fields.</p>
+                </div>
+                
+                <div class="feature-step">
+                    <img src="get ins.png" alt="Get Instant Result">
+                    <h3>2. Get Instant Result</h3>
+                    <p>The app instantly computes your total bill, showing the exact breakdown. Save the result to your account history.</p>
+                </div>
 
-        <div class="hero-img">
-            <img src="sss.png" alt="Energy Graphic" />
-        </div>
-    </div>
+                <div class="feature-step">
+                    <img src="track save.png" alt="Track and Save">
+                    <h3>3. Track & Save</h3>
+                    <p>View month-to-month reports on your dashboard, compare usage trends, and find opportunities to reduce your next bill.</p>
+                </div>
+            </div>
+        </section>
 
-    <!-- BENEFITS -->
-    <div class="benefits">
-        <h2>Benefits of using <strong>WattsUp!</strong></h2>
-
-        <div class="benefit-boxes">
-            <div class="box">
-                <img src="ins bill.png" />
-                <p>Instant Bill Estimates</p>
+        <section class="testimonials">
+            <div class="test-header-box">
+                <h2>What our happy <span>users</span> says!</h2>
             </div>
 
-            <div class="box">
-                <img src="track.png" />
-                <p>Track Monthly Usage</p>
-            </div>
+            <div class="testimonials-grid">
+                <div class="t-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i> 4.2</div>
+                    <p>I love the clean design and the gold accent. It makes tracking something boring, like bills, actually feel a bit premium. Accurate results, every time.</p>
+                    
+                    <div class="user-profile">
+                        <span class="user-name">- Zita Miro Valerio</span>
+                    </div>
+                </div>
 
-            <div class="box">
-                <img src="priv.png" />
-                <p>Data Privacy Guaranteed</p>
+                <div class="t-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i> 4.5</div>
+                    <p>The history feature is a game-changer. Comparing month-to-month usage is effortless. No more spreadsheet headaches.</p>
+                    
+                    <div class="user-profile">
+                        <span class="user-name">- Ronie Nidea</span>
+                    </div>
+                </div>
+
+                <div class="t-card">
+                    <div class="stars"><i class="fa-solid fa-star"></i> 4.3</div>
+                    <p>I finally understand my bill! This app is so easy to use and it instantly showed me where I could cut back on energy. I saved $25 last month.</p>
+                    
+                    <div class="user-profile">
+                        <span class="user-name">- Mark Cyrell Quinio</span>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to take control?</h2>
+            <p>Join now & save, monitor, and track your money every month!</p>
+            <button class="btn-cta">Calculate Your Bill</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <img src="my logo.png" alt="WattsUp Logo" class="footer-logo-img">
         </div>
-    </div>
-
-    <!-- FEATURES -->
-    <div class="features-wrapper">
-        <h2>Our <strong>Features:</strong></h2>
-
-        <div class="features-row">
-
-            <div class="feature-card">
-                <img src="input your data icon.png" class="feature-icon" alt="">
-                <p class="feature-title">1. Input your data</p>
-                <p class="feature-text">
-                    Simply enter your latest power consumption (kWh) and the rate from your bill into the calculator fields.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <img src="get instant result icon.png" class="feature-icon" alt="">
-                <p class="feature-title">2. Get Instant Result</p>
-                <p class="feature-text">
-                    The app instantly computes your total bill, showing the exact breakdown. Save the result to your account history.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <img src="finance check icon.png" class="feature-icon" alt="">
-                <p class="feature-title">3. Track & Save</p>
-                <p class="feature-text">
-                    View month-to-month reports on your dashboard, compare usage trends, and find opportunities to reduce your next bill.
-                </p>
-            </div>
-
+        <div class="copyright">
+            Copy Right ©2025 WattsUp!. All rights reserved.
         </div>
-    </div>
-
-</div><!-- desktop-wrapper -->
+    </footer>
 
 </body>
 </html>
