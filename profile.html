@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Settings</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+  <div class="layout">
+
+    <aside class="sidebar">
+      <img class="logo" src="my logo.png" alt="WattsUp Logo">
+      <nav class="menu">
+        <a href="dashboard.html"><img src="dashboard icon.png" class="menu-icon"> Dashboard</a>
+        <a href="calculator.html"><img src="calcu icon.png" class="menu-icon"> Calculator</a>
+        <a href="save-results.html"><img src="results icon.png" class="menu-icon"> Results</a>
+        <a href="profile.html"><img src="profile icon.png" class="menu-icon"> Profile</a>
+        <a href="index.html"><img src="logout icon.png" class="menu-icon"> Logout</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+      <h1 class="page-title">Profile Settings</h1>
+
+      <div class="profile-layout">
+
+        <!-- GENERAL INFORMATION -->
+        <div class="general-info">
+          <div class="user-header">
+            <img src="user profile.png" class="profile-img">
+
+            <div>
+              <h3 class="section-title">General Information</h3>
+
+              <p><strong>Full Name:</strong> Marchael Jade Salomon</p>
+              <p><strong>Email:</strong> marchaeljadesalomon.202401261@gmail.com</p>
+              <p><strong>Phone Number:</strong> +63 91234567890</p>
+            </div>
+          </div>
+
+          <div class="update-btn-container">
+            <button class="update-info-btn" id="openModalBtn">Update Info</button>
+          </div>
+        </div>
+
+        <!-- ACCOUNT DETAILS -->
+        <div class="account-details">
+          <h2>Account <span>Details</span></h2>
+          <p><strong>Member Since:</strong> October 24, 2025</p>
+          <p><strong>Account Status:</strong> Active</p>
+          <p><strong>Account ID:</strong> #F02B03</p>
+        </div>
+
+      </div>
+
+      <!-- UPDATE PASSWORD -->
+      <h2 class="password-title">Update Password</h2>
+
+      <div class="password-box">
+        <input type="password" placeholder="Enter Current Password">
+        <input type="password" placeholder="Enter New Password">
+        <input type="password" placeholder="Enter Confirm Password">
+
+        <button class="change-pass-btn">Change Password</button>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ✨ POPUP MODAL -->
+  <div class="modal-bg" id="modalBg">
+    <div class="modal-box">
+
+      <h2>Edit Profile Information</h2>
+
+      <div class="modal-row">
+        <input type="text" placeholder="Enter your first name">
+        <input type="text" placeholder="Enter your last name">
+      </div>
+
+      <input type="email" placeholder="Enter your email">
+      <input type="text" placeholder="Enter your phone number">
+
+      <div class="modal-buttons">
+        <button class="cancel-btn" id="cancelBtn">Cancel</button>
+        <button class="update-btn">Update</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="profile.js"></script>
+
+</body>
+</html>

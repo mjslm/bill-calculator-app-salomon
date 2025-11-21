@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View All Bills</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="view_all_bill.css">
+</head>
+<body>
+  <div class="layout">
+
+    <aside class="sidebar">
+      <img class="logo" src="my logo.png" alt="WattsUp Logo">
+      <nav class="menu">
+        <a href="dashboard.html"><img src="dashboard icon.png" class="menu-icon"> Dashboard</a>
+        <a href="calculator.html"><img src="calcu icon.png" class="menu-icon"> Calculator</a>
+        <a href="save-results.html"><img src="results icon.png" class="menu-icon"> Results</a>
+        <a href="profile.html"><img src="profile icon.png" class="menu-icon"> Profile</a>
+        <a href="index.html"><img src="logout icon.png" class="menu-icon"> Logout</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <header class="header">
+        <h1>Hello, Marchael! 👋</h1>
+        <p>Welcome to WattsUp! View All Your Bills</p>
+      </header>
+
+      <!-- ALL BILLS SECTION -->
+      <section class="recent-bills">
+        <div class="table-header">
+          <h3>All Bills</h3>
+
+          <!-- FILTER BY DROPDOWN -->
+          <select class="filter-dropdown" id="filter">
+            <option value="latest">Latest</option>
+            <option value="oldest">Oldest</option>
+          </select>
+        </div>
+
+        <!-- BILLS TABLE -->
+        <table>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Year</th>
+              <th>KwH</th>
+              <th>Rate</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>October</td><td>2025</td><td>420 kWh</td><td>$0.36</td><td>$151.2</td>
+            </tr>
+            <tr>
+              <td>December</td><td>2024</td><td>420 kWh</td><td>$0.36</td><td>$152.1</td>
+            </tr>
+            <tr>
+              <td>September</td><td>2023</td><td>420 kWh</td><td>$0.36</td><td>$153.4</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- EXTERNAL JS FILE -->
+  <script src="view_all_bill.js"></script>
+
+</body>
+</html>

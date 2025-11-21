@@ -9,14 +9,14 @@
 body {
     background: #FFFFFF;
     width: 100%;
-    min-height: 200vh; /* same scroll as signup page */
+    min-height: 100vh; /* same scroll as signup page */
 }
 
 /* MAIN WRAPPER */
 .main-container {
     display: flex;
     width: 100%;
-    min-height: 200vh;
+    min-height: 130vh;
 }
 
 /* LEFT PANEL */

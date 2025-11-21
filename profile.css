@@ -1,0 +1,166 @@
+/* PAGE TITLE */
+.page-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* MAIN LAYOUT */
+.profile-layout {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+/* LEFT SIDE */
+.general-info {
+  width: 60%;
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.update-btn-container {
+  margin-top: 15px;
+}
+
+.update-info-btn {
+  background: #C0940F;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.update-info-btn:hover {
+  background: #b3870a;
+}
+
+/* RIGHT SIDE */
+.account-details h2 span {
+  color: #C0940F;
+}
+
+/* PASSWORD SECTION */
+.password-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.password-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 450px;
+}
+
+.password-box input {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.change-pass-btn {
+  background: #C0940F;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.change-pass-btn:hover {
+  background: #b3870a;
+}
+
+/* ✨ MODAL BACKGROUND */
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(3px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* ✨ MODAL BOX */
+.modal-box {
+  width: 600px;
+  background: #d1d1d1;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+.modal-box h2 {
+  margin-bottom: 25px;
+}
+
+.modal-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.modal-box input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  margin-bottom: 15px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 10px;
+}
+
+.cancel-btn {
+  background: white;
+  color: black;
+  padding: 10px 30px;
+  border-radius: 20px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.update-btn {
+  background: #C0940F;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 20px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background: #e5e5e5;
+}
+
+.update-btn:hover {
+  background: #b3870a;
+}
+
+/* SHOW MODAL */
+.modal-bg.show {
+  display: flex;
+}

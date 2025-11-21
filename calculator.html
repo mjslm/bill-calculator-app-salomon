@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+  <div class="layout">
+
+    <aside class="sidebar">
+      <img class="logo" src="my logo.png" alt="WattsUp Logo">
+      <nav class="menu">
+        <a href="dashboard.html"><img src="dashboard icon.png" class="menu-icon"> Dashboard</a>
+        <a href="calculator.html"><img src="calcu icon.png" class="menu-icon"> Calculator</a>
+        <a href="save-results.html"><img src="results icon.png" class="menu-icon"> Results</a>
+        <a href="profile.html"><img src="profile icon.png" class="menu-icon"> Profile</a>
+        <a href="index.html"><img src="logout icon.png" class="menu-icon"> Logout</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main calculator-main">
+
+      <h1 class="page-title">Electricity Bill Calculator</h1>
+
+      <!-- SUMMARY SECTION -->
+      <div class="summary-box">
+        <h2>Summary</h2>
+        <p>Estimate your monthly electricity cost,<br>Enter your latest consumption data below.</p>
+      </div>
+
+      <div class="calculator-layout">
+
+        <!-- INPUT CARD (left) -->
+        <div class="input-card">
+          <input type="text" id="month" placeholder="Input Month:">
+          <input type="number" id="kwh" placeholder="Power Consumption (kWh):">
+          <input type="number" id="rate" placeholder="Cost per kWh ($):">
+
+          <button class="calculate-btn" onclick="calculateBill()">Calculate</button>
+        </div>
+
+        <!-- RESULT CARD (right) -->
+        <div class="result-section">
+          <div class="result-card">
+            <h3>Estimated Total Bill:</h3>
+            <h1 id="totalDisplay">$0.00</h1>
+            <p>Based on Power Consumption * Rate</p>
+          </div>
+
+          <!-- SAVE BUTTON placed exactly like your screenshot -->
+          <button class="save-btn">Save Result</button>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="calculator.js"></script>
+</body>
+</html>

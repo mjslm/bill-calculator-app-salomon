@@ -9,13 +9,13 @@
 body {
     background: #FFFFFF;
     width: 100%;
-    min-height: 200vh; /* keep same as login */
+    min-height: 150vh; /* keep same as login */
 }
 
 .main-container {
     display: flex;
     width: 100%;
-    min-height: 200vh;
+    min-height: 150vh;
 }
 
 /* LEFT PANEL */
