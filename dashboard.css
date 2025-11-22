@@ -22,7 +22,6 @@
 body {
   background: var(--bg-light);
   color: var(--bg-dark);
-  display: flex;
   min-height: 100vh;
 }
 
@@ -56,6 +55,7 @@ body {
   font-size: 1rem;
   border-radius: 6px;
   margin-bottom: 5px;
+  transition: var(--transition-speed);
 }
 
 .menu a:hover {
@@ -80,6 +80,12 @@ body {
 .header h1 {
   font-size: 2.2rem;
   font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.header p {
+  font-size: 1rem;
+  color: #666;
 }
 
 /* BILL CARD */
@@ -92,7 +98,6 @@ body {
   border: 3px solid var(--border-color);
   max-width: 360px;
   width: 100%;
-  display: block;
 }
 
 .bill-card .label {
@@ -110,7 +115,7 @@ body {
   color: #666;
 }
 
-/* BUTTON (updated to also style <a>) */
+/* BUTTON */
 .view-btn {
   padding: 8px 16px;
   border: none;
@@ -128,16 +133,11 @@ body {
   color: black;
 }
 
-/* Makes the <a> clickable button behave correctly */
-.view-all-link {
-  text-decoration: none;
-  display: inline-block;
-}
-
 /* TABLE */
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 20px;
 }
 
 thead {
@@ -154,28 +154,77 @@ tbody tr {
   border-bottom: 1px solid #ddd;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .layout {
-    flex-direction: column;
-  }
+/* ---------------------------------------------------------------------- */
+/* STEPWISE RESPONSIVE DESIGN 1360 → 492px */
+/* ---------------------------------------------------------------------- */
 
-  .sidebar {
-    width: 100%;
-    height: auto;
-  }
-
-  .main {
-    padding: 20px;
-  }
+/* 1360px */
+@media (max-width: 1360px) {
+  .sidebar { width: 230px; }
+  .main { padding: 35px; }
 }
 
-@media (max-width: 600px) {
-  th, td {
-    padding: 8px;
-  }
+/* 1280px */
+@media (max-width: 1280px) {
+  .sidebar { width: 220px; }
+  .main { padding: 30px; }
+  .bill-card { max-width: 340px; }
+}
 
-  .header h1 {
-    font-size: 1.8rem;
-  }
+/* 1200px */
+@media (max-width: 1200px) {
+  .sidebar { width: 210px; }
+  .main { padding: 28px; }
+  .bill-card { max-width: 320px; }
+}
+
+/* 1100px */
+@media (max-width: 1100px) {
+  .sidebar { width: 200px; }
+  .main { padding: 25px; }
+  .bill-card { max-width: 300px; }
+}
+
+/* 992px */
+@media (max-width: 992px) {
+  .sidebar { width: 180px; }
+  .main { padding: 25px; }
+  .bill-card { max-width: 280px; }
+  .header h1 { font-size: 2rem; }
+}
+
+/* 900px - Tablet */
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; padding: 15px; }
+  .main { padding: 20px; }
+  .bill-card { margin: 20px 0; }
+  table { font-size: 0.9rem; }
+}
+
+/* 768px - Large Mobile */
+@media (max-width: 768px) {
+  .header h1 { font-size: 1.8rem; }
+  .header p { font-size: 0.95rem; }
+  th, td { padding: 10px; font-size: 0.85rem; }
+  .bill-card { padding: 20px; }
+  .view-btn { padding: 6px 12px; font-size: 0.85rem; }
+}
+
+/* 600px - Mobile */
+@media (max-width: 600px) {
+  .header h1 { font-size: 1.6rem; }
+  .header p { font-size: 0.85rem; }
+  th, td { padding: 8px; font-size: 0.8rem; }
+  .bill-card { padding: 18px; }
+  .view-btn { padding: 5px 10px; font-size: 0.8rem; }
+}
+
+/* 492px - Small Mobile */
+@media (max-width: 492px) {
+  .header h1 { font-size: 1.4rem; }
+  .header p { font-size: 0.75rem; }
+  th, td { padding: 6px; font-size: 0.7rem; }
+  .bill-card { padding: 15px; }
+  .view-btn { padding: 4px 8px; font-size: 0.75rem; }
 }

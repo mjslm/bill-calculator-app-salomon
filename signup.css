@@ -9,7 +9,7 @@
 body {
     background: #FFFFFF;
     width: 100%;
-    min-height: 150vh; /* keep same as login */
+    min-height: 150vh;
 }
 
 .main-container {
@@ -33,12 +33,11 @@ body {
     width: 240px;
 }
 
-/* ✔ MATCH LOGIN PAGE EXACT POSITION */
 .left-panel h2 {
     position: absolute;
-    top: 170px;       /* changed from 160px → 170px */
+    top: 170px;
     left: 50px;
-    width: 340px;     /* changed from 320px → 340px */
+    width: 340px;
     font-size: 24px;
     font-weight: 700;
     line-height: 1.35;
@@ -62,7 +61,7 @@ body {
 
 /* FORM */
 .signup-form {
-    width: 450px;  /* MATCH LOGIN */
+    width: 450px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -109,13 +108,13 @@ body {
 /* SOCIAL BUTTONS */
 .social-buttons {
     display: flex;
-    gap: 18px;           /* MATCH LOGIN */
+    gap: 18px;
     flex-wrap: wrap;
 }
 
 .fb-btn,
 .google-btn {
-    width: 215px;        /* MATCH LOGIN */
+    width: 215px;
     padding: 12px;
     border: 1px solid #CCCCCC;
     border-radius: 8px;
@@ -133,84 +132,73 @@ body {
 }
 
 /* ---------------------------------------------------------------------- */
-/* RESPONSIVE DESIGN — SAME AS LOGIN */
+/* STEPWISE RESPONSIVE DESIGN 1360 → 492px */
 /* ---------------------------------------------------------------------- */
 
-/* TABLET */
-@media (max-width: 992px) {
+/* 1360px */
+@media (max-width: 1360px) {
+    .left-panel { width: 34%; }
+    .right-panel { width: 66%; padding-top: 80px; }
+    .signup-form { width: 430px; }
+}
+
+/* 1280px */
+@media (max-width: 1280px) {
+    .left-panel { width: 36%; }
+    .right-panel { width: 64%; padding-top: 75px; }
+    .signup-form { width: 410px; }
+}
+
+/* 1200px */
+@media (max-width: 1200px) {
+    .left-panel { width: 38%; }
+    .right-panel { width: 62%; padding-top: 70px; }
+    .signup-form { width: 400px; }
+}
+
+/* 1100px */
+@media (max-width: 1100px) {
     .left-panel { width: 40%; }
-    .right-panel { width: 60%; padding-top: 60px; }
-    .right-panel h1 { font-size: 40px; }
+    .right-panel { width: 60%; padding-top: 65px; }
     .signup-form { width: 380px; }
-
-    .logo { width: 240px; }
-    .left-panel h2 { font-size: 22px; width: 280px; }
 }
 
-/* MOBILE LARGE */
+/* 992px */
+@media (max-width: 992px) {
+    .left-panel { width: 42%; }
+    .right-panel { width: 58%; padding-top: 60px; }
+    .signup-form { width: 360px; }
+    .right-panel h1 { font-size: 40px; }
+}
+
+/* 768px - Tablet */
 @media (max-width: 768px) {
-    .main-container {
-        flex-direction: column;
-    }
-
-    .left-panel {
-        width: 100%;
-        padding: 40px 20px 80px 20px;
-        height: auto;
-    }
-
-    .logo {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 230px;
-        margin-bottom: 25px;
-    }
-
-    .left-panel h2 {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        font-size: 22px;
-    }
-
-    .right-panel {
-        width: 100%;
-        padding: 40px 20px;
-    }
-
-    .right-panel h1 {
-        font-size: 36px;
-    }
-
-    .signup-form {
-        width: 100%;
-    }
+    .main-container { flex-direction: column; }
+    .left-panel { width: 100%; padding: 40px 20px 80px 20px; }
+    .logo { width: 230px; margin-bottom: 25px; display: block; position: relative; top: 0; left: 0; }
+    .left-panel h2 { width: 100%; font-size: 22px; text-align: center; position: relative; top: 0; left: 0; }
+    .right-panel { width: 100%; padding: 40px 20px; }
+    .right-panel h1 { font-size: 36px; text-align: center; }
+    .signup-form { width: 100%; }
+    .two-input { flex-direction: column; gap: 12px; }
 }
 
-/* MOBILE SMALL */
-@media (max-width: 480px) {
-    .right-panel h1 {
-        font-size: 32px;
-    }
+/* 600px - Large Mobile */
+@media (max-width: 600px) {
+    .right-panel h1 { font-size: 32px; }
+    .signup-form input { font-size: 14px; padding: 12px; }
+    .create-btn { font-size: 16px; padding: 12px 0; }
+    .social-buttons { flex-direction: column; gap: 12px; width: 100%; }
+    .fb-btn, .google-btn { width: 100%; }
+}
 
-    .signup-form input {
-        font-size: 14px;
-        padding: 12px;
-    }
-
-    .create-btn {
-        font-size: 16px;
-    }
-
-    .social-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .fb-btn,
-    .google-btn {
-        width: 100%;
-    }
+/* 492px - Small Mobile */
+@media (max-width: 492px) {
+    .right-panel h1 { font-size: 28px; text-align: center; }
+    .signup-form input { font-size: 13px; padding: 10px; }
+    .create-btn { font-size: 15px; padding: 10px 0; }
+    .social-buttons { flex-direction: column; gap: 10px; width: 100%; }
+    .fb-btn, .google-btn { width: 100%; font-size: 13px; }
+    .left-panel h2 { font-size: 20px; text-align: center; }
+    .logo { width: 200px; margin: 0 auto 20px auto; display: block; }
 }

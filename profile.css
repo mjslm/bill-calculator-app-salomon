@@ -10,6 +10,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
+  gap: 30px;
 }
 
 /* LEFT SIDE */
@@ -163,4 +164,43 @@
 /* SHOW MODAL */
 .modal-bg.show {
   display: flex;
+}
+
+/* ---------------------------------------------------------------------- */
+/* RESPONSIVE DESIGN: 1360 → 492px */
+/* ---------------------------------------------------------------------- */
+
+/* 992px - Tablet */
+@media (max-width: 992px) {
+  .profile-layout { flex-direction: column; }
+  .general-info, .account-details { width: 100%; }
+  .password-box { width: 100%; }
+  .page-title { font-size: 2rem; text-align: center; }
+}
+
+/* 768px - Large Mobile */
+@media (max-width: 768px) {
+  .page-title { font-size: 1.8rem; }
+  .password-title { font-size: 1.6rem; }
+  .profile-img { width: 70px; height: 70px; }
+  .update-info-btn, .change-pass-btn { padding: 10px 20px; font-size: 0.9rem; }
+}
+
+/* 600px - Mobile */
+@media (max-width: 600px) {
+  .page-title { font-size: 1.6rem; }
+  .password-title { font-size: 1.4rem; }
+  .profile-img { width: 60px; height: 60px; }
+  .update-info-btn, .change-pass-btn { padding: 8px 18px; font-size: 0.85rem; }
+  .modal-box { width: 90%; padding: 25px; }
+}
+
+/* 492px - Small Mobile */
+@media (max-width: 492px) {
+  .page-title { font-size: 1.4rem; }
+  .password-title { font-size: 1.2rem; }
+  .profile-img { width: 50px; height: 50px; }
+  .update-info-btn, .change-pass-btn { padding: 6px 15px; font-size: 0.8rem; }
+  .modal-box { width: 95%; padding: 20px; }
+  .modal-row { flex-direction: column; }
 }

@@ -1,4 +1,4 @@
-/* --- RESET --- */
+/* ==== RESET ==== */
 * {
     margin: 0;
     padding: 0;
@@ -7,49 +7,47 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #fff;
-    color: #111111; 
-    
-    /* --- FIXED DIMENSIONS --- */
-    width: 1360px;      
-    min-height: 1024px; 
-    
-    margin: 0 auto;
-    border: 1px dashed #ccc; 
+    background: #fff;
+    color: #111;
 }
 
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
+/* ==== GLOBAL CONTAINER ==== */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
 
-/* --- NAVBAR --- */
+/* ==== NAVBAR ==== */
 header {
-    background-color: #565656;
+    background: #565656;
     height: 80px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 80px; 
 }
 
-.logo-link {
+.header-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
+
 .nav-logo-img {
     height: 40px;
-    width: auto;
 }
 
 nav ul {
     display: flex;
     gap: 40px;
 }
+
 nav a {
     color: #fff;
     font-weight: 500;
     font-size: 14px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: .5px;
 }
 
 .nav-buttons {
@@ -67,51 +65,38 @@ nav a {
     transition: 0.3s;
 }
 
-.btn-login {
-    background-color: #D4AF37; 
-    color: #fff;
-}
+.btn-login { background: #D4AF37; color: #fff; }
+.btn-signup { background: #fff; color: #D4AF37; }
 
-.btn-signup {
-    background-color: #fff;
-    color: #D4AF37; 
-}
-
-/* --- HERO SECTION --- */
+/* ==== HERO ==== */
 .hero {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 80px 120px;
+    align-items: center;
+    padding: 80px 0;
 }
 
-.hero-text {
-    max-width: 50%;
-}
+.hero-text { max-width: 50%; }
 
 .hero-text h1 {
-    font-family: 'Inter', sans-serif; 
-    font-size: 58px; 
+    font-size: 58px;
+    font-weight: 600;
     line-height: 1.2;
-    font-weight: 600; 
-    margin-bottom: 20px;
 }
 
 .hero-text p {
-    font-size: 16 px;
-    color: #555555; 
-    max-width: 450px;
+    font-size: 16px;
+    color: #555;
+    margin-top: 12px;
 }
 
 .hero-image img {
-    width: 400px; 
-    height: auto;
-    display: block;
+    width: 400px;
 }
 
-/* --- BENEFITS SECTION --- */
+/* ==== BENEFITS ==== */
 .benefits {
-    padding: 40px 120px; 
+    padding: 40px 0;
 }
 
 .benefits-title {
@@ -119,99 +104,65 @@ nav a {
     font-weight: 700;
     margin-bottom: 40px;
 }
-.benefits-title span { 
-    color: #D4AF37; 
-}
+
+.benefits-title span { color: #D4AF37; }
 
 .benefits-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 35px; 
+    gap: 35px;
 }
 
 .b-card {
-    border: 1px solid;
-    border-color: #808080;
+    border: 1px solid #808080;
     border-radius: 30px;
     padding: 40px 25px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: px;
-
 }
 
-.b-card img {
-    height: 70px;
-    width: auto;
-    margin-bottom: 20px;
-    object-fit: contain;
-}
-
-.b-card h3 {
-    font-size: 19px;
-    font-weight: 700;
-    width: 80%;
-    line-height: 1.4;
-}
-
-/* --- FEATURES SECTION --- */
+/* ==== FEATURES ==== */
 .features {
-    padding: 80px 120px;
+    padding: 80px 0;
+    text-align: center;
 }
 
 .features-header {
     font-size: 38px;
     font-weight: 800;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
-.features-header span { 
-    color: #D4AF37; 
+
+.features-header span {
+    color: #D4AF37;
 }
 
 .features-container {
-    border: 2px solid;
-    border-color: #808080;
+    border: 2px solid #808080;
     border-radius: 20px;
     padding: 60px;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .feature-step {
-    flex: 1;
+    flex: 1 1 260px;
+    max-width: 280px;
     text-align: center;
-    padding: 0 25px;
 }
 
 .feature-step img {
     height: 65px;
-    width: auto;
-    margin-bottom: 25px;
-    display: inline-block;
+    margin-bottom: 20px;
 }
 
-.feature-step h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.feature-step p {
-    font-size: 15px;
-    color: #555555; 
-    line-height: 1.6;
-}
-
-/* --- TESTIMONIALS SECTION --- */
+/* ==== TESTIMONIALS ==== */
 .testimonials {
-    padding: 80px 120px;
-    text-align: center;
+    padding: 80px 0;
 }
-
-/* --- TESTIMONIAL HEADER (Updated to match Figma) --- */
 
 .test-header-box {
     border: 1px solid #D0D0D0;
@@ -220,20 +171,16 @@ nav a {
     background: #FFFFFF;
     display: inline-block;
     margin-bottom: 70px;
-    text-align: center;
 }
 
 .test-header-box h2 {
-    font-family: "Inter", sans-serif;
     font-size: 42px;
     font-weight: 800;
-    color: #000000;
 }
 
-.test-header-box h2 span {
-    color: #D4AF37; /* Gold color from Figma */
+.test-header-box span {
+    color: #D4AF37;
 }
-
 
 .testimonials-grid {
     display: grid;
@@ -241,68 +188,27 @@ nav a {
     gap: 35px;
 }
 
-/* Figma card style */
 .t-card {
     border: 1px solid #D0D0D0;
     border-radius: 16px;
     padding: 30px;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 250px;
 }
 
-/* Star row */
 .stars {
     color: #FFC107;
     font-weight: 700;
     font-size: 18px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-/* Centered review text */
-.t-card p {
-    margin: 0 auto 25px;
-    font-size: 15px;
-    color: #555;
-    line-height: 1.5;
-    width: 90%;
-    text-align: center;
-    font-weight: 500;
-}
-
-/* Name at bottom */
-.user-name {
-    font-size: 15px;
-    font-weight: 700;
-    color: #000;
-    text-align: left;
-}
-
-/* --- CTA & FOOTER --- */
+/* ==== CTA ==== */
 .cta-section {
     text-align: center;
-    margin-bottom: 80px;
-}
-
-.cta-section h2 {
-    font-size: 36px;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-
-.cta-section p {
-    color: #555555; 
-    margin-bottom: 30px;
-    font-size: 16px;
+    margin: 80px 0;
 }
 
 .btn-cta {
-    background-color: #D4AF37; 
+    background: #D4AF37;
     color: #fff;
     padding: 15px 50px;
     border: none;
@@ -312,22 +218,70 @@ nav a {
     cursor: pointer;
 }
 
+/* ==== FOOTER ==== */
 footer {
+    padding: 40px 0;
     text-align: center;
-    padding-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .footer-logo-img {
     height: 35px;
-    width: auto;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
-.copyright {
-    font-size: 12px;
-    color: #D4AF37; 
-    font-weight: 600;
+/* ==== RESPONSIVE BREAKPOINTS ==== */
+
+/* 1280px */
+@media (max-width: 1280px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-text { max-width: 100%; }
+}
+
+/* 992px */
+@media (max-width: 992px) {
+    .benefits-grid,
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features-container {
+        max-width: 90%;
+    }
+}
+
+/* 768px */
+@media (max-width: 768px) {
+    nav, .nav-buttons {
+        display: none;
+    }
+
+    .features-container {
+        padding: 40px;
+    }
+
+    .feature-step {
+        max-width: 100%;
+    }
+}
+
+/* 492px */
+@media (max-width: 492px) {
+    .hero-text h1 {
+        font-size: 36px;
+    }
+    .hero-image img {
+        width: 260px;
+    }
+
+    .benefits-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
 }

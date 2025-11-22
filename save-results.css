@@ -1,4 +1,4 @@
-/* PAGE TITLE (same style as calculator) */
+/* PAGE TITLE */
 .page-title {
   font-size: 2.4rem;
   font-weight: 700;
@@ -29,6 +29,8 @@
 .highest-amount span {
   font-size: 1rem;
   color: #000;
+  display: block;
+  margin-top: 5px;
 }
 
 /* RECENT SECTION TITLE */
@@ -83,4 +85,59 @@
 
 .delete-btn:hover {
   color: red;
+}
+
+/* ---------------------------------------------------------------------- */
+/* RESPONSIVE DESIGN: 1360 → 492px */
+/* ---------------------------------------------------------------------- */
+
+/* 1360px */
+@media (max-width: 1360px) {
+  .highest-bill-box { max-width: 480px; }
+}
+
+/* 1280px */
+@media (max-width: 1280px) {
+  .highest-bill-box { max-width: 450px; }
+}
+
+/* 1200px */
+@media (max-width: 1200px) {
+  .highest-bill-box { max-width: 420px; }
+}
+
+/* 1100px */
+@media (max-width: 1100px) {
+  .highest-bill-box { max-width: 400px; }
+}
+
+/* 992px - Tablet */
+@media (max-width: 992px) {
+  .highest-bill-box { max-width: 100%; padding: 20px; }
+  .page-title { font-size: 2rem; text-align: center; }
+  .results-table th, .results-table td { padding: 10px; font-size: 0.9rem; }
+}
+
+/* 768px - Large Mobile */
+@media (max-width: 768px) {
+  .page-title { font-size: 1.8rem; text-align: center; }
+  .highest-amount { font-size: 1.6rem; }
+  .highest-amount span { font-size: 0.9rem; }
+}
+
+/* 600px - Mobile */
+@media (max-width: 600px) {
+  .page-title { font-size: 1.6rem; }
+  .highest-amount { font-size: 1.4rem; }
+  .results-table th, .results-table td { font-size: 0.85rem; padding: 8px; }
+}
+
+/* 492px - Small Mobile */
+@media (max-width: 492px) {
+  .page-title { font-size: 1.4rem; }
+  .highest-bill-box { padding: 15px; }
+  .highest-amount { font-size: 1.2rem; }
+  .highest-amount span { font-size: 0.8rem; }
+  .results-table th, .results-table td { font-size: 0.8rem; padding: 6px; }
+  .view-btn, .delete-btn { padding: 4px 10px; font-size: 0.75rem; }
 }

@@ -58,7 +58,7 @@
   background: #b3870a;
 }
 
-/* RESULT SECTION (wraps card + save button) */
+/* RESULT SECTION */
 .result-section {
   display: flex;
   flex-direction: column;
@@ -91,7 +91,7 @@
   font-size: 0.9rem;
 }
 
-/* SAVE BUTTON under result card */
+/* SAVE BUTTON */
 .save-btn {
   margin-top: 20px;
   padding: 10px 30px;
@@ -105,4 +105,63 @@
 
 .save-btn:hover {
   background: #b3870a;
+}
+
+/* ---------------------------------------------------------------------- */
+/* STEPWISE RESPONSIVE DESIGN 1360 → 492px */
+/* ---------------------------------------------------------------------- */
+
+/* 1360px */
+@media (max-width: 1360px) {
+  .calculator-layout { gap: 50px; }
+  .input-card { width: 480px; }
+}
+
+/* 1280px */
+@media (max-width: 1280px) {
+  .calculator-layout { gap: 45px; }
+  .input-card { width: 450px; }
+}
+
+/* 1200px */
+@media (max-width: 1200px) {
+  .calculator-layout { gap: 40px; }
+  .input-card { width: 420px; }
+}
+
+/* 1100px */
+@media (max-width: 1100px) {
+  .calculator-layout { gap: 35px; }
+  .input-card { width: 400px; }
+}
+
+/* 992px - Tablet */
+@media (max-width: 992px) {
+  .calculator-layout { flex-direction: column; align-items: center; gap: 30px; }
+  .input-card, .result-card { width: 100%; max-width: 400px; }
+  .page-title { font-size: 2rem; text-align: center; }
+}
+
+/* 768px - Large Mobile */
+@media (max-width: 768px) {
+  .page-title { font-size: 1.8rem; }
+  .summary-box { max-width: 100%; padding: 20px; }
+  .calculate-btn, .save-btn { width: 100%; }
+}
+
+/* 600px - Mobile */
+@media (max-width: 600px) {
+  .calculator-layout { gap: 20px; }
+  .input-card, .result-card { width: 100%; padding: 15px; }
+  .result-card h1 { font-size: 2.5rem; }
+  .result-card h3 { font-size: 1.1rem; }
+}
+
+/* 492px - Small Mobile */
+@media (max-width: 492px) {
+  .page-title { font-size: 1.6rem; }
+  .summary-box { padding: 15px; font-size: 0.9rem; }
+  .result-card h1 { font-size: 2rem; }
+  .result-card h3 { font-size: 1rem; }
+  .calculate-btn, .save-btn { padding: 10px; font-size: 0.9rem; }
 }

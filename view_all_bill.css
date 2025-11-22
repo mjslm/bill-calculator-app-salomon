@@ -21,7 +21,6 @@
 body {
   background: var(--bg-light);
   color: var(--bg-dark);
-  display: flex;
   min-height: 100vh;
 }
 
@@ -53,6 +52,7 @@ body {
   text-decoration: none;
   border-radius: 6px;
   margin-bottom: 5px;
+  transition: 0.3s ease;
 }
 
 .menu a:hover {
@@ -76,6 +76,11 @@ body {
 .header h1 {
   font-size: 2.2rem;
   font-weight: 700;
+}
+
+.header p {
+  font-size: 1rem;
+  color: #666;
 }
 
 .recent-bills {
@@ -132,25 +137,69 @@ tbody tr {
   transition: opacity 0.25s ease-in-out;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .layout {
-    flex-direction: column;
-  }
-  .sidebar {
-    width: 100%;
-    height: auto;
-  }
-  .main {
-    padding: 20px;
-  }
+/* ---------------------------------------------------------------------- */
+/* STEPWISE RESPONSIVE DESIGN 1360 → 492px */
+/* ---------------------------------------------------------------------- */
+
+/* 1360px */
+@media (max-width: 1360px) {
+  .sidebar { width: 230px; }
+  .main { padding: 35px; }
 }
 
+/* 1280px */
+@media (max-width: 1280px) {
+  .sidebar { width: 220px; }
+  .main { padding: 30px; }
+}
+
+/* 1200px */
+@media (max-width: 1200px) {
+  .sidebar { width: 210px; }
+  .main { padding: 28px; }
+}
+
+/* 1100px */
+@media (max-width: 1100px) {
+  .sidebar { width: 200px; }
+  .main { padding: 25px; }
+}
+
+/* 992px */
+@media (max-width: 992px) {
+  .sidebar { width: 180px; }
+  .main { padding: 25px; }
+  .header h1 { font-size: 2rem; }
+}
+
+/* 900px - Tablet */
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; padding: 15px; }
+  .main { padding: 20px; }
+  table { font-size: 0.9rem; }
+}
+
+/* 768px - Large Mobile */
+@media (max-width: 768px) {
+  .header h1 { font-size: 1.8rem; }
+  .header p { font-size: 0.95rem; }
+  th, td { padding: 10px; font-size: 0.85rem; }
+  .filter-dropdown { padding: 8px; font-size: 0.85rem; }
+}
+
+/* 600px - Mobile */
 @media (max-width: 600px) {
-  th, td {
-    padding: 8px;
-  }
-  .filter-dropdown {
-    width: 100%;
-  }
+  .header h1 { font-size: 1.6rem; }
+  .header p { font-size: 0.85rem; }
+  th, td { padding: 8px; font-size: 0.8rem; }
+  .filter-dropdown { width: 100%; padding: 6px; font-size: 0.8rem; }
+}
+
+/* 492px - Small Mobile */
+@media (max-width: 492px) {
+  .header h1 { font-size: 1.4rem; }
+  .header p { font-size: 0.75rem; }
+  th, td { padding: 6px; font-size: 0.7rem; }
+  .filter-dropdown { padding: 5px; font-size: 0.75rem; }
 }
