@@ -11,13 +11,13 @@
   <div class="layout">
 
     <aside class="sidebar">
-      <img class="logo" src="my logo.png" alt="WattsUp Logo">
+      <img class="logo" src="resources/my logo.png" alt="WattsUp Logo">
       <nav class="menu">
-        <a href="dashboard.html"><img src="dashboard icon.png" class="menu-icon"> Dashboard</a>
-        <a href="calculator.html"><img src="calcu icon.png" class="menu-icon"> Calculator</a>
-        <a href="save-results.html"><img src="results icon.png" class="menu-icon"> Results</a>
-        <a href="profile.html"><img src="profile icon.png" class="menu-icon"> Profile</a>
-        <a href="index.html"><img src="logout icon.png" class="menu-icon"> Logout</a>
+        <a href="dashboard.html"><img src="resources/dashboard icon.png" class="menu-icon"> Dashboard</a>
+        <a href="calculator.html"><img src="resources/calcu icon.png" class="menu-icon"> Calculator</a>
+        <a href="save-results.html"><img src="resources/results icon.png" class="menu-icon"> Results</a>
+        <a href="profile.html"><img src="resources/profile icon.png" class="menu-icon"> Profile</a>
+        <a href="index.html" class="logout-link"><img src="resources/logout icon.png" class="menu-icon"> Logout</a>
       </nav>
     </aside>
 
@@ -31,7 +31,7 @@
         <!-- GENERAL INFORMATION -->
         <div class="general-info">
           <div class="user-header">
-            <img src="user profile.png" class="profile-img">
+            <img src="resources/user profile.png" class="profile-img">
 
             <div>
               <h3 class="section-title">General Information</h3>
@@ -61,11 +61,11 @@
       <h2 class="password-title">Update Password</h2>
 
       <div class="password-box">
-        <input type="password" placeholder="Enter Current Password">
-        <input type="password" placeholder="Enter New Password">
-        <input type="password" placeholder="Enter Confirm Password">
+        <input id="currentPassword" type="password" placeholder="Enter Current Password">
+        <input id="newPassword" type="password" placeholder="Enter New Password">
+        <input id="confirmPassword" type="password" placeholder="Enter Confirm Password">
 
-        <button class="change-pass-btn">Change Password</button>
+        <button class="change-pass-btn" id="changePasswordBtn">Change Password</button>
       </div>
 
     </main>
@@ -78,12 +78,12 @@
       <h2>Edit Profile Information</h2>
 
       <div class="modal-row">
-        <input type="text" placeholder="Enter your first name">
-        <input type="text" placeholder="Enter your last name">
+        <input id="profileFirst" type="text" placeholder="Enter your first name">
+        <input id="profileLast" type="text" placeholder="Enter your last name">
       </div>
 
-      <input type="email" placeholder="Enter your email">
-      <input type="text" placeholder="Enter your phone number">
+      <input id="profileEmail" type="email" placeholder="Enter your email">
+      <input id="profilePhone" type="text" placeholder="Enter your phone number">
 
       <div class="modal-buttons">
         <button class="cancel-btn" id="cancelBtn">Cancel</button>
@@ -93,6 +93,11 @@
     </div>
   </div>
 
+  <!-- Supabase CDN - Must be loaded first -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/auth.js"></script>
   <script src="profile.js"></script>
 
 </body>

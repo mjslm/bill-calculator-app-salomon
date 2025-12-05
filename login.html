@@ -17,7 +17,7 @@
 
     <!-- LEFT PANEL -->
     <div class="left-panel">
-        <img src="my logo2.png" class="logo" alt="WattsUp Logo">
+        <img src="resources/my logo2.png" class="logo" alt="WattsUp Logo">
 
         <h2>
             Stop Guessing. Start Saving.<br>
@@ -33,29 +33,18 @@
 
         <form class="login-form">
 
-            <input type="email" placeholder="Enter your Email">
-            <input type="password" placeholder="Enter your Password">
+            <input id="loginEmail" type="email" placeholder="Enter your Email">
+            <input id="loginPassword" type="password" placeholder="Enter your Password">
 
-            <!-- Updated Login Button to go to dashboard.html -->
-            <button type="button" class="login-btn" onclick="window.location.href='dashboard.html'">Login Now</button>
+            <button type="button" id="loginBtn" class="login-btn">Login Now</button>
 
         </form>
 
         <div class="links-row">
-            <a class="forgot" href="#">Forgot Password?</a>
             <a class="register" href="signup.html">Need an account? Register</a>
 
         </div>
 
-        <div class="social-buttons">
-            <button class="fb-btn">
-                <img src="fb.png" class="icon"> Continue with Facebook
-            </button>
-
-            <button class="google-btn">
-                <img src="google.png" class="icon"> Continue with Google
-            </button>
-        </div>
 
     </div>
 
@@ -63,3 +52,31 @@
 
 </body>
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script>
+    // On page load, check if already authenticated (from callback or existing session)
+    document.addEventListener('DOMContentLoaded', async function(){
+        const session = await checkAuth();
+        if(session){
+            // User is already authenticated, redirect to dashboard
+            window.location.href = 'dashboard.html';
+        }
+    });
+
+    // Login handler using Supabase
+    document.getElementById('loginBtn').addEventListener('click', async function(){
+        const email = document.getElementById('loginEmail').value.trim();
+        const password = document.getElementById('loginPassword').value;
+        if(!email || !password){ alert('Enter email and password'); return; }
+        try{
+            const { data, error } = await window.supabaseClient.auth.signInWithPassword({ email, password });
+            if (error) { alert('Login failed: ' + error.message); return; }
+            // Redirect to dashboard on success
+            window.location.href = 'dashboard.html';
+        }catch(e){ alert('Login error'); }
+    });
+</script>
+

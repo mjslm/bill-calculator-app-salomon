@@ -8,16 +8,22 @@
   <link rel="stylesheet" href="save-results.css">
 </head>
 <body>
+  <!-- Supabase CDN - Must be loaded first -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/auth.js"></script>
+  
   <div class="layout">
 
     <aside class="sidebar">
-      <img class="logo" src="my logo.png" alt="WattsUp Logo">
+      <img class="logo" src="resources/my logo.png" alt="WattsUp Logo">
       <nav class="menu">
-        <a href="dashboard.html"><img src="dashboard icon.png" class="menu-icon"> Dashboard</a>
-        <a href="calculator.html"><img src="calcu icon.png" class="menu-icon"> Calculator</a>
-        <a href="save-results.html"><img src="results icon.png" class="menu-icon"> Results</a>
-        <a href="profile.html"><img src="profile icon.png" class="menu-icon"> Profile</a>
-        <a href="index.html"><img src="logout icon.png" class="menu-icon"> Logout</a>
+        <a href="dashboard.html"><img src="resources/dashboard icon.png" class="menu-icon"> Dashboard</a>
+        <a href="calculator.html"><img src="resources/calcu icon.png" class="menu-icon"> Calculator</a>
+        <a href="save-results.html"><img src="resources/results icon.png" class="menu-icon"> Results</a>
+        <a href="profile.html"><img src="resources/profile icon.png" class="menu-icon"> Profile</a>
+        <a href="index.html" class="logout-link"><img src="resources/logout icon.png" class="menu-icon"> Logout</a>
       </nav>
     </aside>
 
@@ -25,11 +31,13 @@
     <main class="main">
 
       <h1 class="page-title">Electricity Save Result History</h1>
+      <p id="userGreeting" style="font-size:0.95rem;color:#666;margin-bottom:1rem;"></p>
+      <!-- Local results are persisted in-browser; no sync UI shown -->
 
       <!-- HIGHEST BILL BOX -->
       <div class="highest-bill-box">
         <h3>Highest Bill:</h3>
-        <p class="highest-amount">$158.4 <span>September (2023)</span></p>
+        <p class="highest-amount">₱0.00</p>
       </div>
 
       <!-- RECENT BILLS -->
@@ -48,46 +56,149 @@
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
-            <td>October</td>
-            <td>2025</td>
-            <td>4:30 pm</td>
-            <td>420 kWh</td>
-            <td>$0.36</td>
-            <td>$151.2</td>
-            <td>
-              <button class="view-btn">View</button>
-              <button class="delete-btn">🗑</button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>December</td>
-            <td>2024</td>
-            <td>5:00 pm</td>
-            <td>430 kWh</td>
-            <td>$0.36</td>
-            <td>$154.8</td>
-            <td>
-              <button class="view-btn">View</button>
-              <button class="delete-btn">🗑</button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>September</td>
-            <td>2023</td>
-            <td>7:00 am</td>
-            <td>440 kWh</td>
-            <td>$0.36</td>
-            <td>$158.4</td>
-            <td>
-              <button class="view-btn">View</button>
-              <button class="delete-btn">🗑</button>
-            </td>
-          </tr>
+        <tbody id="resultsBody">
         </tbody>
+      </table>
+
+      <script>
+        function formatCurrency(n){ return '₱ ' + Number(n).toFixed(2); }
+
+        async function loadSavedResults(){
+          const tbody = document.getElementById('resultsBody');
+          tbody.innerHTML = '';
+
+          // Prefer Supabase when authenticated
+          try{
+            if (window.getCurrentUser && typeof window.getCurrentUser === 'function'){
+              const { user } = await window.getCurrentUser();
+              if (user){
+                // fetch recent from supabase
+                const res = await window.fetchRecentCalculations(20);
+                if (res && res.data){
+                  const saved = res.data;
+                  if (!saved || saved.length === 0){
+                    document.querySelector('.highest-amount').innerText = '₱0.00';
+                    return;
+                  }
+                  // compute highest
+                  let highest = saved.reduce((a,b)=> a.total > b.total ? a : b, saved[0]);
+                  document.querySelector('.highest-amount').innerText = formatCurrency(highest.total) + (highest.month ? ' ' + highest.month : '');
+
+                  saved.forEach(rec => {
+                    const tr = document.createElement('tr');
+                    const date = new Date(rec.created_at || rec.timestamp);
+                    const year = date.getFullYear();
+                    const time = date.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+                    tr.innerHTML = `
+                      <td>${rec.month}</td>
+                      <td>${year}</td>
+                      <td>${time}</td>
+                      <td>${rec.kwh} kWh</td>
+                      <td>${formatCurrency(rec.rate)}</td>
+                      <td>${formatCurrency(rec.total)}</td>
+                      <td>
+                        <button class="view-btn" onclick="showViewModal('${rec.id}')">View</button>
+                        <button class="delete-btn" onclick="confirmDeleteSupabase('${rec.id}')">🗑</button>
+                      </td>
+                    `;
+                    tbody.appendChild(tr);
+                  });
+                  return;
+                }
+              }
+            }
+          } catch(e){
+            console.warn('Supabase load error, falling back to localStorage', e);
+          }
+
+          // Fallback to localStorage (namespaced per user when available)
+          const saved = (window.getLocalSavedBills) ? await window.getLocalSavedBills() : JSON.parse(localStorage.getItem('savedBills') || '[]');
+          if(!saved || saved.length === 0){
+            document.querySelector('.highest-amount').innerText = '₱0.00';
+            return;
+          }
+
+          let highest = saved.reduce((a,b)=> a.total > b.total ? a : b, saved[0]);
+          document.querySelector('.highest-amount').innerText = formatCurrency(highest.total) + (highest.month ? ' ' + highest.month : '');
+
+          saved.forEach(rec => {
+            const tr = document.createElement('tr');
+            const date = new Date(rec.timestamp);
+            const year = date.getFullYear();
+            const time = date.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+            tr.innerHTML = `
+              <td>${rec.month}</td>
+              <td>${year}</td>
+              <td>${time}</td>
+              <td>${rec.kwh} kWh</td>
+              <td>${formatCurrency(rec.rate)}</td>
+              <td>${formatCurrency(rec.total)}</td>
+              <td>
+                <button class="view-btn" onclick="viewLocalRecord('${rec.timestamp}')">View</button>
+                <button class="delete-btn" onclick="deleteLocalRecord('${rec.timestamp}')">🗑</button>
+              </td>
+            `;
+            tbody.appendChild(tr);
+          });
+        }
+
+        function viewLocalRecord(ts){
+          (async ()=>{
+            const saved = (window.getLocalSavedBills) ? await window.getLocalSavedBills() : JSON.parse(localStorage.getItem('savedBills') || '[]');
+            const rec = saved.find(r=> r.timestamp === ts);
+            if(rec) alert(`Month: ${rec.month}\nKWh: ${rec.kwh}\nRate: ₱ ${rec.rate}\nTotal: ₱ ${rec.total}`);
+          })();
+        }
+
+        function deleteLocalRecord(ts){
+          (async ()=>{
+            if (!confirm('Are you sure you want to permanently delete this record? This action cannot be undone.')) return;
+            const saved = (window.getLocalSavedBills) ? await window.getLocalSavedBills() : JSON.parse(localStorage.getItem('savedBills') || '[]');
+            const remaining = saved.filter(r=> r.timestamp !== ts);
+            if (window.setLocalSavedBills) await window.setLocalSavedBills(remaining); else localStorage.setItem('savedBills', JSON.stringify(remaining));
+            loadSavedResults();
+          })();
+        }
+
+        async function confirmDeleteSupabase(id){
+          if (!confirm('Are you sure you want to permanently delete this record from your account?')) return;
+          try{
+            const { data, error } = await window.supabaseClient.from('calculations').delete().eq('id', id);
+            if (error) { alert('Delete failed: ' + error.message); return; }
+            loadSavedResults();
+          }catch(e){ alert('Delete failed'); }
+        }
+
+        // Keep existing view modal functions if defined elsewhere
+        async function loadUserGreeting(){
+          try{
+            const user = await getCurrentUser();
+            if (user){
+              const fullName = user.user_metadata?.full_name || user.email?.split('@')[0] || 'User';
+              const greetingEl = document.getElementById('userGreeting');
+              if (greetingEl){
+                greetingEl.innerText = `Welcome, ${fullName}`;
+              }
+            }
+          }catch(e){
+            console.warn('Error loading user greeting:', e);
+          }
+        }
+
+        // Listen for profile updates from other pages/tabs
+        window.addEventListener('storage', (event) => {
+          if (event.key === 'userProfileUpdated'){
+            console.log('Profile was updated, refreshing greeting...');
+            loadUserGreeting();
+          }
+        });
+
+        document.addEventListener('DOMContentLoaded', async () => {
+          await initAuth(); // Protect page - redirect if not authenticated
+          await loadUserGreeting();
+          loadSavedResults();
+        });
+      </script>
       </table>
 
     </main>

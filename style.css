@@ -48,6 +48,7 @@ nav a {
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: .5px;
+    text-decoration: none;
 }
 
 .nav-buttons {
@@ -63,6 +64,8 @@ nav a {
     cursor: pointer;
     border: none;
     transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
 }
 
 .btn-login { background: #D4AF37; color: #fff; }
@@ -229,49 +232,45 @@ footer {
     margin-bottom: 10px;
 }
 
-/* ==== RESPONSIVE BREAKPOINTS ==== */
+/* ========================================================= */
+/* ===================== MEDIA QUERIES ===================== */
+/* ========================================================= */
 
-/* 1280px */
+/* 🔶 1280px */
 @media (max-width: 1280px) {
     .hero {
         flex-direction: column;
         text-align: center;
     }
-    .hero-text { max-width: 100%; }
-}
-
-/* 992px */
-@media (max-width: 992px) {
-    .benefits-grid,
-    .testimonials-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .hero-text { 
+        max-width: 100%; 
     }
-
     .features-container {
-        max-width: 90%;
+        max-width: 95%;
     }
 }
 
-/* 768px */
-@media (max-width: 768px) {
-    nav, .nav-buttons {
+/* 🔶 600px */
+@media (max-width: 600px) {
+
+    nav, 
+    .nav-buttons {
         display: none;
     }
 
-    .features-container {
-        padding: 40px;
+    .container {
+        padding: 0 20px;
     }
 
-    .feature-step {
-        max-width: 100%;
+    .hero {
+        flex-direction: column;
+        text-align: center;
     }
-}
 
-/* 492px */
-@media (max-width: 492px) {
     .hero-text h1 {
         font-size: 36px;
     }
+
     .hero-image img {
         width: 260px;
     }
@@ -281,7 +280,33 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .container {
-        padding: 0 20px;
+    .features-container {
+        padding: 40px;
+        max-width: 100%;
+    }
+
+    .feature-step {
+        max-width: 100%;
+    }
+}
+
+/* 🔶 390px */
+@media (max-width: 390px) {
+
+    .hero-text h1 {
+        font-size: 30px;
+    }
+
+    .btn-cta {
+        padding: 12px 35px;
+        font-size: 16px;
+    }
+
+    .test-header-box h2 {
+        font-size: 32px;
+    }
+
+    .feature-step img {
+        height: 55px;
     }
 }

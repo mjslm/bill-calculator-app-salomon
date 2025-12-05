@@ -17,7 +17,7 @@
 
     <!-- LEFT PANEL -->
     <div class="left-panel">
-        <img src="my logo2.png" class="logo" alt="Logo">
+        <img src="resources/my logo2.png" class="logo" alt="Logo">
 
         <h2>
             Stop Guessing. Start Saving.<br>
@@ -33,17 +33,16 @@
         <form class="signup-form">
 
             <div class="two-input">
-                <input type="text" placeholder="Enter your First Name">
-                <input type="text" placeholder="Enter your Last Name">
+                <input id="firstName" type="text" placeholder="Enter your First Name">
+                <input id="lastName" type="text" placeholder="Enter your Last Name">
             </div>
 
-            <input type="email" placeholder="Enter your Email">
-            <input type="password" placeholder="Enter your Password">
-            <input type="password" placeholder="Enter your Confirm Password">
-            <input type="text" placeholder="Enter your Phone Number">
+            <input id="signupEmail" type="email" placeholder="Enter your Email">
+            <input id="signupPassword" type="password" placeholder="Enter your Password">
+            <input id="signupPasswordConfirm" type="password" placeholder="Enter your Confirm Password">
+            <input id="phone" type="text" placeholder="Enter your Phone Number">
 
-            <!-- FIXED BUTTON -->
-            <button type="button" class="create-btn" onclick="window.location.href='login.html'">
+            <button type="button" id="signupBtn" class="create-btn">
                 Create Account
             </button>
 
@@ -54,20 +53,38 @@
            <a href="login.html">Login</a>
         </p>
 
-        <div class="or-line">or</div>
-
-        <div class="social-buttons">
-            <button class="fb-btn">
-                <img src="fb.png" class="icon"> Sign up with Facebook
-            </button>
-
-            <button class="google-btn">
-                <img src="google.png" class="icon"> Sign up with Google
-            </button>
-        </div>
     </div>
 
 </div>
 
 </body>
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script>
+    // On page load, check if already authenticated (from callback or existing session)
+    document.addEventListener('DOMContentLoaded', async function(){
+        const session = await checkAuth();
+        if(session){
+            // User is already authenticated, redirect to dashboard
+            window.location.href = 'dashboard.html';
+        }
+    });
+
+    // Signup handler using Supabase
+    document.getElementById('signupBtn').addEventListener('click', async function(){
+        const email = document.getElementById('signupEmail').value.trim();
+        const password = document.getElementById('signupPassword').value;
+        const passwordConfirm = document.getElementById('signupPasswordConfirm').value;
+        if(!email || !password){ alert('Enter email and password'); return; }
+        if(password !== passwordConfirm){ alert('Passwords do not match'); return; }
+        try{
+            const { data, error } = await window.supabaseClient.auth.signUp({ email, password });
+            if (error) { alert('Sign up failed: ' + error.message); return; }
+            alert('Check your email to confirm (if enabled). Redirecting to login.');
+            window.location.href = 'login.html';
+        }catch(e){ alert('Signup error'); }
+    });
+</script>
